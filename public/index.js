@@ -1,7 +1,8 @@
 function send() {
     var toSend = $("#message").val();
     var author = $("#username").val();
-    $.get("./api/send/" + author + "/" + toSend, data => {})
+    var time = $("#time").val();
+    $.get("./api/send/messages/" + author + "/" + toSend + "/" + time, data => {})
 
     $("#message").val("");
 }
@@ -9,7 +10,7 @@ function send() {
 console.log("hello");
 
 window.setInterval(() => {
-    $.get("./api/messages", data => {
+    $.get("./api/messages/messages", data => {
         var formattedData = [];
         for (var i = 0; i < data.length; i++) {
             if (data[i] != "\n") {

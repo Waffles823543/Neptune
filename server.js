@@ -77,8 +77,8 @@ app.get('/api/removeUser/:name/:channel', (req, res) => {
     })
 })
 
-app.get('/api/send/:channel/:author/:message', (req, res) => {
-    fs.appendFile('./chats/' + req.params.channel + '.neptuneChat', req.params.author + ": " + req.params.message + "\n", err => {});
+app.get('/api/send/:channel/:author/:message/:time', (req, res) => {
+    fs.appendFile('./chats/' + req.params.channel + '.neptuneChat', req.params.author + ": " + req.params.message + ", " + req.params.time + "\n", err => {});
 })
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))
