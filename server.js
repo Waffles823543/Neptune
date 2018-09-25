@@ -7,7 +7,7 @@ const path = require("path");
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.sendFile("./public/index.html");
+    res.send("You're in");
 })
 
 app.get('/api/createRoom/:name', (req, res) => {
@@ -81,4 +81,4 @@ app.get('/api/send/:channel/:author/:message', (req, res) => {
     fs.appendFile('./chats/' + req.params.channel + '.neptuneChat', req.params.author + ": " + req.params.message + "\n", err => {});
 })
 
-app.listen(port, () => console.log(`app listening on port ${port}!`))
+app.listen(process.env.PORT || port, () => console.log(`app listening on port ${port}!`))
