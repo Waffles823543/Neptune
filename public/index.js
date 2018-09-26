@@ -19,6 +19,6 @@ window.setInterval(() => {
                 formattedData.push("</br>")
             }
         }
-        $("p").html(formattedData.join(""));
+        $("#outputBox").html(formattedData.join(""));
     })
 }, 100)
