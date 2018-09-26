@@ -5,6 +5,10 @@ run with
 ```
 node server.js
 ```
+or 
+```
+npm start
+```
  
 I'm not bothered to write all the commands so look at the code for all of the commands.
 
