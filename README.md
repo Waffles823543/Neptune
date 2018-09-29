@@ -17,7 +17,7 @@ Links:
 create and delete rooms
 ```
 /api/createRoom/:name
-/api/deleteRoom/:name
+/api/deleteRoom/:name/:password
 ```
 
 get messages
