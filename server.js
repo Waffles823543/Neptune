@@ -16,10 +16,12 @@ app.get('/api/createRoom/:name', (req, res) => {
     res.send("done");
 });
 
-app.get('/api/deleteRoom/:name', (req, res) => {
+app.get('/api/deleteRoom/:name/:password', (req, res) => {
     if (fs.existsSync('./chats/' + req.params.name + '.neptuneChat')) {
-        fs.unlink('./chats/' + req.params.name + '.neptuneChat', err => {});
-        fs.unlink('./chats/' + req.params.name + '.neptuneUsers', err => {});
+        if (req.params.password == "beesCarryLigma") {
+            fs.unlink('./chats/' + req.params.name + '.neptuneChat', err => {});
+            fs.unlink('./chats/' + req.params.name + '.neptuneUsers', err => {});
+        }
     }
     res.send("done");
 });
@@ -78,7 +80,7 @@ app.get('/api/removeUser/:name/:channel', (req, res) => {
 });
 
 app.get('/api/send/:channel/:author/:message/:time', (req, res) => {
-    fs.appendFile('./chats/' + req.params.channel + '.neptuneChat', req.params.author + ": " + req.params.message + ", " + req.params.time + "\n", err => {});
+    fs.appendFile('./chats/' + req.params.channel + '.neptuneChat', "<" + req.params.time + "><" + req.params.author + ">: " + req.params.message + "\n", err => {});
 });
 
 app.listen(process.env.PORT || port, () => console.log(`app listening on port ${port}!`))
