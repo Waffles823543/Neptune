@@ -28,15 +28,15 @@ app.get('/api/deleteRoom/:name/:password', (req, res) => {
 
 app.get('/api/messages/:channel', (req, res) => {
     fs.readFile('./chats/' + req.params.channel + '.neptuneChat', "utf8", (err, data) => {
-        var formattedData = [];
-        for (var i = 0; i < data.length; i++) {
-            if (data[i] != "\n") {
-                formattedData.push(data[i])
-            } else {
-                formattedData.push("\\n")
-            }
-        }
-        res.send(formattedData.join(""))
+        // var formattedData = [];
+        // for (var i = 0; i < data.length; i++) {
+        //     if (data[i] != "\n") {
+        //         formattedData.push(data[i])
+        //     } else {
+        //         formattedData.push("\\n")
+        //     }
+        // }
+        res.send(data)
     });
 });
 
@@ -89,7 +89,7 @@ app.get('/api/removeUser/:name/:channel', (req, res) => {
 
 app.get('/api/send/:channel/:author/:message/:time', (req, res) => {
     fs.appendFile('./chats/' + req.params.channel + '.neptuneChat', "<" + req.params.time + "><" + req.params.author + ">: " + req.params.message + "\n", err => {});
-    res.send("");
+    res.send("done");
 });
 
 app.listen(process.env.PORT || port, () => console.log(`app listening on port ${port}!`))
