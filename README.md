@@ -36,7 +36,7 @@ add and remove user from channel
 /api/removeUser/:name/:channel
 ```
 
-send emssage
+send message
 ```
 /api/send/:channel/:author/:message/:time
 ```
