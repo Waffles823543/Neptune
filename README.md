@@ -29,6 +29,10 @@ get channels
 ```
 /api/getChannels
 ```
+get users
+```
+/api/getusers/:channel
+```
 
 add and remove user from channel
 ```
