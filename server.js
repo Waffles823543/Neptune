@@ -28,14 +28,14 @@ app.get('/api/deleteRoom/:name/:password', (req, res) => {
 
 app.get('/api/messages/:channel', (req, res) => {
     fs.readFile('./chats/' + req.params.channel + '.neptuneChat', "utf8", (err, data) => {
-        // var formattedData = [];
-        // for (var i = 0; i < data.length; i++) {
-        //     if (data[i] != "\n") {
-        //         formattedData.push(data[i])
-        //     } else {
-        //         formattedData.push("\\n")
-        //     }
-        // }
+        var formattedData = [];
+        for (var i = 0; i < data.length; i++) {
+            if (data[i] != "\n") {
+                formattedData.push(data[i])
+            } else {
+                formattedData.push("\\n")
+            }
+        }
         res.send(data)
     });
 });
